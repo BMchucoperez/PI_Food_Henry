@@ -1,0 +1,170 @@
+.container{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    text-shadow: 2px 0px 2px rgba(0,0,0,0.6);
+    background-image: url("../../img/fondoCocina.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    color:aliceblue;
+    align-items: center;
+}
+
+.containerInfo{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.form{
+    display: flex;
+    flex-direction: row;
+    /* padding: 15px; */
+}
+.containerinputsForm{
+    display: flex;
+    flex-direction: column;
+    margin-left: 70px;
+    justify-content: center;
+}
+
+.containerButtonImg{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form input, textarea, select {
+    margin-top: 22px;
+}
+
+.select{
+    width: 150px;
+    height: 300px;
+    overflow-y: hidden;
+}
+
+.name{
+    width: 480px;
+    text-align: left;
+    background: #e4e7c3;
+    border: 3px solid #bbd13f;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.summary{
+    resize: vertical;
+    height: 100%;
+    width: 480px;
+    background: #e4e7c3;
+    border: 3px solid #bbd13f;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.steps{
+    text-align: left;
+    resize: vertical;
+    height: 150px;
+    background: #e4e7c3;
+    border: 3px solid #bbd13f;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.health{
+    text-align: left;
+    width: 20%;
+    background: #e4e7c3;
+    border: 3px solid #bbd13f;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.imgUrl{
+    text-align: left;
+    width: 480px;
+    background: #e4e7c3;
+    border: 3px solid #bbd13f;
+    border-radius: 12px 12px 12px 12px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.img{
+    width: 40%;
+}
+
+.button{
+    width: 50%;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 18px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+    &:hover{
+        color:darkslategray;
+        background-color: azure;
+        box-shadow: 0 5px 5px white;
+    }
+}
+
+.form span{
+    color: rgb(255, 48, 48);
+    font-size: 15px;
+    text-align: left;
+    margin: 0;
+}
+
+.containerDiets{
+    width: 70vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-start;
+    margin-left: 15%;
+    margin-top: 4%;
+    color:rgb(255, 255, 255)
+}
+
+.containerDiets label{
+    cursor: pointer;
+    margin-bottom: 4%;
+}
+
+.containerDiets label input[type='checkbox']{
+    display: none;
+    
+}
+
+.containerDiets label:hover .circle {
+    filter: grayscale(0%) opacity(100%);
+}
+
+.containerDiets label input[type='checkbox']:checked ~ .circle {
+    filter: grayscale(0%) opacity(100%);
+}
+
+.byDiet{
+    display: flex;
+    align-items: center;
+    /* color: #2a852a7a; */
+}
+
+.circle{
+    filter: grayscale(100%) opacity(50%) ;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+.containerALLDiets{
+    color:rgb(255, 255, 255);
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}

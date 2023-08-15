@@ -1,0 +1,24 @@
+.inputText{
+    outline: none;
+    border-radius: 12px;
+    padding: 1.5vh;
+    padding-left: 2.5vh;
+    height: 100%;
+    width: 40vh;
+    border: none;
+    transition: width 0.5s;
+    background: rgb(77, 75, 86) ;
+    color: rgba(229, 233, 236, 0.767);
+    font-size: 2.0vh;
+    text-align: left;
+
+}
+
+.inputText::placeholder{
+    color: rgba(229, 233, 236, 0.767);
+    /* text-align: left; */
+}
+
+.inputText:focus{
+    width: 45vh;
+}

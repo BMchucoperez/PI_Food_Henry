@@ -1,0 +1,78 @@
+.containerHome {
+  display: flex;
+  background-color: aqua;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction:column;
+  /* border: solid 1px black; */
+}
+
+.containerError{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction:column;
+  background-image: url("../../img/fondoEspatulas.jpg");
+}
+
+.section{
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+}
+
+.sectionError {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: rgb(184, 66, 66);
+}
+
+.sectionError button {
+  width: 250px;
+}
+
+@media (max-width: 770px) {
+  .containerHome {
+      flex-direction: column;
+      margin-top: 100px;
+  }
+
+  .sectionError {
+      position: relative; 
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100vh;
+  }
+
+  .sectionError button {
+      width: 100%;
+  }
+
+  .containerError{
+      flex-direction: column-reverse;
+  }
+}
+
+.link{
+  background-color: #24242d;
+  border: none;
+  border-radius: 3px ;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 250px;
+  margin: 4px;
+  color: white;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.link:hover{
+  background-color: rgba(0, 0, 0, 0.708);
+}

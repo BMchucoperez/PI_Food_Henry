@@ -1,0 +1,158 @@
+.container{
+    width: 100%;
+    background: linear-gradient(33deg,#dbe994 0%, #e9d69b 80%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    
+}
+
+.containerImgSummary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerSummaryHealthDiet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 0.1px solid rgb(206, 93, 62);
+}
+
+.containerDietHealth{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    width: 456px;
+}
+
+.containerHealtScore{
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+    justify-content: space-between;
+}
+
+.imagRecipe{
+    height: 350px;
+    border-radius: 12px;
+    margin-bottom: 100px;
+    width: 100%;
+    border: 0.4px solid rgb(206, 93, 62);
+}
+
+.steps{
+    text-align:justify;
+    font-size: 14px;
+    width: 60%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.diets{
+    /* list-style-type: none; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    width: 180px;
+    height: 150px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.diets li{
+    margin-left: 13px;
+}
+
+.summary{
+    text-align: left;
+    font-size: 14px;
+    width: 453px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.icon{
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.conteneinerLoading{
+    width: 100vh;
+    height: 100vh;
+}
+
+.loader {
+    font-size: 20px;
+    margin: 45% auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-animation: load4 1.3s infinite linear;
+    animation: load4 1.3s infinite linear;
+  }
+  @-webkit-keyframes load4 {
+    0%,
+    100% {
+      box-shadow: 0em -3em 0em 0.2em #24242d, 2em -2em 0 0em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 0em #24242d;
+    }
+    12.5% {
+      box-shadow: 0em -3em 0em 0em #24242d, 2em -2em 0 0.2em #24242d, 3em 0em 0 0em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    25% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 0em #24242d, 3em 0em 0 0.2em #24242d, 2em 2em 0 0em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    37.5% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 0em #24242d, 2em 2em 0 0.2em #24242d, 0em 3em 0 0em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    50% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 0em #24242d, 0em 3em 0 0.2em #24242d, -2em 2em 0 0em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    62.5% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 0em #24242d, -2em 2em 0 0.2em #24242d, -3em 0em 0 0em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    75% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 0em #24242d, -3em 0em 0 0.2em #24242d, -2em -2em 0 0em #24242d;
+    }
+    87.5% {
+      box-shadow: 0em -3em 0em 0em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 0em #24242d, -3em 0em 0 0em #24242d, -2em -2em 0 0.2em #24242d;
+    }
+  }
+  @keyframes load4 {
+    0%,
+    100% {
+      box-shadow: 0em -3em 0em 0.2em #24242d, 2em -2em 0 0em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 0em #24242d;
+    }
+    12.5% {
+      box-shadow: 0em -3em 0em 0em #24242d, 2em -2em 0 0.2em #24242d, 3em 0em 0 0em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    25% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 0em #24242d, 3em 0em 0 0.2em #24242d, 2em 2em 0 0em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    37.5% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 0em #24242d, 2em 2em 0 0.2em #24242d, 0em 3em 0 0em #24242d, -2em 2em 0 -0.5em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    50% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 0em #24242d, 0em 3em 0 0.2em #24242d, -2em 2em 0 0em #24242d, -3em 0em 0 -0.5em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    62.5% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 0em #24242d, -2em 2em 0 0.2em #24242d, -3em 0em 0 0em #24242d, -2em -2em 0 -0.5em #24242d;
+    }
+    75% {
+      box-shadow: 0em -3em 0em -0.5em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 0em #24242d, -3em 0em 0 0.2em #24242d, -2em -2em 0 0em #24242d;
+    }
+    87.5% {
+      box-shadow: 0em -3em 0em 0em #24242d, 2em -2em 0 -0.5em #24242d, 3em 0em 0 -0.5em #24242d, 2em 2em 0 -0.5em #24242d, 0em 3em 0 -0.5em #24242d, -2em 2em 0 0em #24242d, -3em 0em 0 0em #24242d, -2em -2em 0 0.2em #24242d;
+    }
+  }
