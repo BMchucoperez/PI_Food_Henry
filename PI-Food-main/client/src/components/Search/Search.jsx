@@ -1,39 +1,38 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { getAllRecipes, getSearchRecipes } from '../../redux/actions'
-import s from './Search.module.css'
+import style from './Search.module.css'
 
 export default function SearchBar() {
 
     const [input, setInput] = useState('');
     const dispatch = useDispatch();
-    // const recipes = useSelector(state => state.temporal)
+    
 
-    function handleChange(e) {
-        setInput(e.target.value);
-        if (input.trim().length <= 1) {           //cuadno el input esta vacio(trim elimina los espacios vacios)
+    function handleChange(event) {
+        setInput(event.target.value);
+        if (input.trim().length <= 1) {
             dispatch(getAllRecipes("loading"))
             dispatch(getAllRecipes())
         } else {
-            dispatch(getSearchRecipes(input))   //cuando el input tien alg
+            dispatch(getSearchRecipes(input))
         }
     };
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log(input);
-        dispatch(getSearchRecipes(input))
-        setInput('')
+    function handleSubmit(event) {
+        event.preventDefault();
+        dispatch(getSearchRecipes(input));
+        setInput('');
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={handleSubmit}>
             <input
-                type='text'
-                onInput={(e) => handleChange(e)}
+                type='search'
+                onChange={handleChange}
                 value={input}
-                placeholder="Search recipe"
-                className={s.inputText}
+                placeholder="Search recipe..."
+                className={style.inputText}
                 required
             />
         </form>

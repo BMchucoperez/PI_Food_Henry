@@ -1,16 +1,16 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { filterByDiet, filterByOrigin } from '../../redux/actions'
-import s from '../OrderBar/OrderBar.module.css'
+import style from '../OrderBar/OrderBar.module.css'
 
 export default function FilterBar() {
 
   const diets = useSelector(state => state.diets)
   const dispatch = useDispatch();
 
-  function handleChange(e) {
+  function handleChange(event) {
     dispatch(filterByDiet("all"))
-    dispatch(filterByDiet(e.target.value));
+    dispatch(filterByDiet(event.target.value));
   }
 
   function handleChangeOrgin(order) {
@@ -18,24 +18,30 @@ export default function FilterBar() {
   }
 
   return (
-    <div className={s.container}>
-      <span className={s.title}>
+    <div className={style.container}>
+      <span className={style.title}>
         Filter by 
       </span>
+      
       <select 
       onChange={handleChange} 
-      className={s.select}
+      className={style.select}
       >
         <option value={"all"}>
           Select diet
         </option>
         {diets.map(diet =>
-          <option value={diet.name} key={diet.name}>{diet.name[0].toUpperCase() + diet.name.slice(1)}
-          </option>
+            <option 
+            value={diet.name} 
+            key={diet.name}
+            >
+              {diet.name[0].toUpperCase() + diet.name.slice(1)}
+            </option>
         )}
       </select>
+      
       <select 
-      className={s.select} 
+      className={style.select} 
       onChange={handleChangeOrgin}
       >
         <option value={"all"}>ALL</option>

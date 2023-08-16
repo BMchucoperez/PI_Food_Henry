@@ -96,12 +96,14 @@ export default function CreateRecipes() {
                 </div>
                 
                 <form 
-                onSubmit={(e) => handleSubmit(e)} className={s.form}>
+                onSubmit={(e) => 
+                    handleSubmit(e)} 
+                className={s.form}>
                     <div className={s.containerinputsForm}>
                         <input
                             type='text'
                             placeholder='Name Recipes'
-                            value={input.title}
+                            value={input.name}
                             name="name"
                             onChange={(e) => handleChange(e)}
                             required
@@ -130,17 +132,17 @@ export default function CreateRecipes() {
 
                         <input
                             type='number'
-                            placeholder='Health Score'
-                            value={input.health_score}
+                            placeholder='HealthScore'
+                            value={input.healthScore}
                             onChange={(e) => handleChange(e)}
-                            name="health_score"
+                            name="healthScore"
                             maxLength="3"
                             required
                             className={s.health}
                         />
-                        {error.health_score 
+                        {error.healthScore 
                         ? 
-                        <span>*{error.health_score}</span> 
+                        <span>*{error.healthScore}</span> 
                         : 
                         undefined}
 

@@ -2,6 +2,7 @@ const { Diet } = require('../db.js')
 const axios = require('axios');
 const { YOUR_API_KEY, spoonacularURL } = process.env;
 
+
 const getAllDietsApi = async () => {
     const apiInfo = await axios.get(`${spoonacularURL}/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`);
     const diets = await apiInfo.data.results.map((recipe) => {
@@ -22,12 +23,14 @@ const getAllDietsApi = async () => {
 
 const addDietsDb = async () => {
     
-    try {
+    try 
+    {
         const allDiets = await Diet.findAll();
         
         if(allDiets.length > 0) {
             return allDiets;
         }
+        
         const resDiets = await getAllDietsApi();
         
         resDiets.map(e => {
@@ -44,10 +47,12 @@ const addDietsDb = async () => {
 
 addDietsDb();
 
+
 const getDietsApi = async () => {
     const results = await Diet.findAll();
-    return results
+    return results;
 };
+
 
 module.exports = {
     getDietsApi

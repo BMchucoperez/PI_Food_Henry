@@ -43,7 +43,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
             }
 
         case ORDER_ALPHA:
-            if (payload === "A-Z") {
+            if (payload === "a-z") {
                 return {
                     ...state,
                     temporal: sort_list("name", state.temporal)

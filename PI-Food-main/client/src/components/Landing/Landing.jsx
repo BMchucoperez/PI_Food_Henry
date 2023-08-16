@@ -1,37 +1,31 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import s from "./Landing.module.css"
+import { Link } from 'react-router-dom'
+import style from "./Landing.module.css"
 
 export default function LandingPage() {
   return (
-    <div className={s.container}>
-      
-        <div 
-        className={s.typewriter}
-        >
+    <div className={style.container}>
+      <div className={style.typewriter}>
           <h1>Healthy Cooking Guide</h1>
-        </div>
-        <div 
-        className={s.subtitle}
-        >
+      </div>
+      
+      <div className={style.subtitle}>
           Project by: Bryann Chuco Perez
-        </div>
-            <ul>
-              <li>
-            <NavLink 
-            to='/home' 
-            className={s.textDe}
+      </div>
+      
+      <ul>
+        <li>
+          <Link 
+          to='/home' 
+          >
+            <button
+            className={style.btn}
             >
-              <button
-              className={s.btn}
-              >
-                OPEN
-              </button>
-            </NavLink>
-            </li>  
-            </ul>
-      
-      
+              OPEN
+            </button>
+          </Link>
+        </li>  
+      </ul>
     </div>
   )
 }

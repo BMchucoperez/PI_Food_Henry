@@ -64,7 +64,7 @@ export default function DetailRecipe() {
                     <div className={s.containerImgSummary}>
                         <img 
                         src={recipe.image} 
-                        alt={recipe.title} 
+                        alt={recipe.name} 
                         className={s.imagRecipe} 
                         />
                         <div className={s.containerSummaryHealthDiet}>

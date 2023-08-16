@@ -11,9 +11,9 @@ export default function Nav() {
             <ul className={style.subcontenedor}>
                 
                 <div>
-                    <li><NavLink to='/' className={style.link}>HOME</NavLink></li>
+                    <li><NavLink to='/' className={style.link}>BACK</NavLink></li>
 
-                    <li><NavLink to='/home' className={style.link}>ALL RECIPES</NavLink></li>
+                    <li><NavLink to='/home' className={style.link}>HOME</NavLink></li>
                     
                     <li><NavLink to='/create' className={style.link}>CREATE RECIPE</NavLink></li>
                     

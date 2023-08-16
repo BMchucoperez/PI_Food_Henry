@@ -1,13 +1,14 @@
-const { Router } = require('express');
+const express = require('express');
 const { getDietsApi } = require('../controllers/dietsController');
+const router = express.Router();
 
-const router = Router();
 
 router.get('/', async (req, res) => {
     
     const diets = await getDietsApi();
     res.status(200).json(diets);
 });
+
 
 router.get('/:id', async (req, res) => {
     
