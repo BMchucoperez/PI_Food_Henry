@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SearchBar from '../../components/Search/Search'
 import style from './About.module.css'
 import linkedin from '../../img/linkedinIcon.png'
@@ -11,11 +11,11 @@ export default function Nav() {
             <ul className={style.subcontenedor}>
                 
                 <div>
-                    <li><NavLink to='/' className={style.link}>EXIT</NavLink></li>
+                    <li><Link to='/' className={style.link}>EXIT</Link></li>
 
-                    <li><NavLink to='/home' className={style.link}>HOME</NavLink></li>
+                    <li><Link to='/home' className={style.link}>HOME</Link></li>
                     
-                    <li><NavLink to='/create' className={style.link}>CREATE RECIPE</NavLink></li>
+                    <li><Link to='/create' className={style.link}>CREATE RECIPE</Link></li>
                     
                     <li>
                         <a target='_blank' href='https://www.linkedin.com/in/bryann-mart%C3%ADn-chuco-p%C3%A9rez-8565b81a6' rel="noreferrer">
