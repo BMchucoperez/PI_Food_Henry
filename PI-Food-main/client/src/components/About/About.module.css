@@ -70,3 +70,18 @@
 .iconLinkedin:hover{
     transform: scale(1.1, 1.1);
 }
+
+.link1{
+    text-decoration: none;
+    color: rgb(66, 39, 39);
+    font-size: 8vh;
+    font-weight: bolder;
+    padding: 1.1vh;
+    border-radius: 14% / 44%;
+    background-color: rgba(22, 22, 22, 0.425), 0%;
+    transition: background-color 0.4s;
+}
+
+.link1:hover{
+    background-color: rgba(211, 219, 219, 0.079);
+}

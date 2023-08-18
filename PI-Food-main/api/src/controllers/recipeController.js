@@ -58,6 +58,7 @@ const getDBInfo = async () => {
             healthScore: recipe.healthScore,
             steps: recipe.steps,
             image: recipe.image,
+            createInDb: true,
             diets: recipe.diets.map(diet=>diet.name)
         }
     });

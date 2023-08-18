@@ -11,7 +11,7 @@ export default function Nav() {
             <ul className={style.subcontenedor}>
                 
                 <div>
-                    <li><NavLink to='/' className={style.link}>BACK</NavLink></li>
+                    <li><NavLink to='/' className={style.link}>EXIT</NavLink></li>
 
                     <li><NavLink to='/home' className={style.link}>HOME</NavLink></li>
                     

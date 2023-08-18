@@ -121,6 +121,7 @@ export default function CreateRecipes() {
                             placeholder='Name Recipes'
                             value={input.name}
                             name="name"
+                            autoComplete="off"
                             onChange={(e) => handleChange(e)}
                             className={style.name}
                         />
@@ -166,6 +167,7 @@ export default function CreateRecipes() {
                             value={input.image}
                             onChange={(e) => handleChange(e)}
                             name="image"
+                            autoComplete="off"
                             className={style.imgUrl}
                         />
                         {error.image && <p>{error.image}</p>}

@@ -3,7 +3,8 @@
   justify-content: space-between;
   align-items: center;
   flex-direction:column;
-  background: linear-gradient(33deg,#dbe994 0%, #e9d69b 80%);
+  background: linear-gradient(rgba(198, 202, 205, 0.5), rgba(198,202,205,0.5)), url("../../img/HomeCocina2.jpg");
+  background-size: cover;
 }
 
 .section{
@@ -21,7 +22,7 @@
   align-items: center;
   justify-content: center;
   height: 30px;
-  width: 250px;
+  width: 100px;
   margin: 4px;
   color: white;
   transition: background-color 0.3s;

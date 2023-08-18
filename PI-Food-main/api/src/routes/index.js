@@ -5,7 +5,7 @@ const { Router } = require('express');
 
 const recipes = require('./recipes.js');
 const diets = require('./diets.js');
-const postRecipe = require('./postRecipe.js');
+
 
 const router = Router();
 // Configurar los routers
@@ -14,6 +14,6 @@ const router = Router();
 
 router.use('/recipes', recipes);
 router.use('/diets', diets);
-router.use('/postRecipe', postRecipe)
+
 
 module.exports = router;

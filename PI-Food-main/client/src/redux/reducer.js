@@ -102,7 +102,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
                         !recipe.hasOwnProperty("createInDb")
                     )
                 }
-            } else {
+            } else if (payload === "db"){
                 return {
                     ...state,
                     temporal: state.allRecipes.filter((recipe) =>
@@ -110,7 +110,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
                     )
                 }
             }
-        
+        break;
   
                
         default:
