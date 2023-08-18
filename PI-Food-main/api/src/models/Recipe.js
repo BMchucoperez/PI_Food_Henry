@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
     },
 
     summary: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
 
@@ -27,16 +27,23 @@ module.exports = (sequelize) => {
       allowNull: false
     },
 
+    steps: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+
     image: {
       type: DataTypes.STRING,
       allowNull: false
     },
 
-    steps: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    
+       
+     createInDb: {
+       type: DataTypes.BOOLEAN,
+       defaultValue: true,
+       allowNull: false
+     }
+
     
   }, {
     timestamps: false,

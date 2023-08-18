@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getAllRecipes, getDiets, postRecipe } from '../../redux/actions'
-import s from './CreateRecipe.module.css'
+import style from './CreateRecipe.module.css'
 import validation from './validation'
 import chefCreate from '../../img/chef.png'
 import circulo from '../../img/circulo.png'
@@ -24,72 +24,88 @@ export default function CreateRecipes() {
         image: "",
         diets: []
     });
-    // console.log(recipes);
+    
     useEffect(() => {
         dispatch(getDiets())
         dispatch(getAllRecipes())
     }, [dispatch])
 
-    function handleSelect(e) {
-        if (e.target.checked) {
+    function handleSelect(event) {
+        if (event.target.checked) {
             setInput({
                 ...input,
-                diets: [...input.diets, e.target.value]
-            })
+                diets: [...input.diets, event.target.value]
+            });
             setError(validation({
                 ...input,
-                diets: [...input.diets, e.target.value]
-            }, recipes))
-        } else if (!e.target.checked) {
+                diets: [...input.diets, event.target.value]
+            }, recipes));
+        } else if (!event.target.checked) {
             setInput({
                 ...input,
-                diets: input.diets.filter(d => d !== e.target.value)
-            })
+                diets: input.diets.filter(d => d !== event.target.value)
+            });
             setError(validation({
                 ...input,
-                diets: input.diets.filter(el => el !== e.target.value)
-            }, recipes))
+                diets: input.diets.filter(el => el !== event.target.value)
+            }, recipes));
+            
         }
     };
 
 
-    function handleChange(e) {
+    function handleChange(event) {
         setInput({
             ...input,
-            [e.target.name]: e.target.value
+            [event.target.name]: event.target.value
         });
         setError(validation({
             ...input,
-            [e.target.name] : e.target.value
+            [event.target.name] : event.target.value
         }, recipes));
     };
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        setError(validation(input, recipes));
-        if (Object.entries(error).length === 0 && input.name.length) {
-            dispatch(postRecipe(input));
-            swal("Good job!", "Recipe created successfuly!", "success");
-            navigate('/home')
-        } else {
-            swal("Something went wrong. Please try again.", "", "error");
+    function handleSubmit(event) {
+        event.preventDefault();
+        if (Object.values(error).length > 0) {
+            swal("Please complete the information required","","error");
+        } else if (
+           input.name === '' && 
+           input.summary === '' && 
+           input.healthScore === '' &&
+           input.steps === '' &&
+           !input.diets.length) {
+           swal("Please complete the form","", "error");}
+       else {
+           dispatch(postRecipe(input));
+           swal('Good job!','New recipe added successfully!');
+           setInput({
+               name: "",
+               summary: '',
+               healthScore: '',
+               steps: '',
+               image: '',
+               diets: []
+           });
+           navigate('/home')
         }
-    };
+                      
+    }
 
     return (
-        <div className={s.container}>
+        <div className={style.container}>
             <h1>CREATE YOUR OWN RECIPE</h1>
-            <div className={s.containerInfo}>
-                <div className={s.containerButtonImg}>
+            <div className={style.containerInfo}>
+                <div className={style.containerButtonImg}>
                     <img 
                     src={chefCreate} 
-                    alt="chef create" 
-                    className={s.img} 
+                    alt="chef" 
+                    className={style.img} 
                     />
                     <button 
                     type='submit' 
                     onClick={handleSubmit} 
-                    className={s.button}
+                    className={style.button}
                     >
                         CREATE RECIPE
                     </button>
@@ -98,22 +114,17 @@ export default function CreateRecipes() {
                 <form 
                 onSubmit={(e) => 
                     handleSubmit(e)} 
-                className={s.form}>
-                    <div className={s.containerinputsForm}>
+                className={style.form}>
+                    <div className={style.containerinputsForm}>
                         <input
                             type='text'
                             placeholder='Name Recipes'
                             value={input.name}
                             name="name"
                             onChange={(e) => handleChange(e)}
-                            required
-                            className={s.name}
+                            className={style.name}
                         />
-                        {error.name 
-                        ? 
-                        <span>*{error.name}</span> 
-                        : 
-                        undefined}
+                        {error.name && <p>{error.name}</p>}
 
                         <textarea
                             type='text'
@@ -121,14 +132,10 @@ export default function CreateRecipes() {
                             value={input.summary}
                             onChange={(e) => handleChange(e)}
                             name="summary"
-                            required
-                            className={s.summary}
+                            autoComplete="off"
+                            className={style.summary}
                         />
-                        {error.summary 
-                        ? 
-                        <span>*{error.summary}</span> 
-                        : 
-                        undefined}
+                        {error.summary && <p>{error.summary}</p>}
 
                         <input
                             type='number'
@@ -136,15 +143,11 @@ export default function CreateRecipes() {
                             value={input.healthScore}
                             onChange={(e) => handleChange(e)}
                             name="healthScore"
-                            maxLength="3"
-                            required
-                            className={s.health}
+                            maxLength="2"
+                            min="0"
+                            className={style.health}
                         />
-                        {error.healthScore 
-                        ? 
-                        <span>*{error.healthScore}</span> 
-                        : 
-                        undefined}
+                        {error.healthScore && <p>{error.healthScore}</p>}
 
                         <textarea
                             type='text'
@@ -152,39 +155,30 @@ export default function CreateRecipes() {
                             value={input.steps}
                             onChange={(e) => handleChange(e)}
                             name="steps"
-                            required
-                            className={s.steps}
+                            autoComplete="off"
+                            className={style.steps}
                         />
-                        {error.steps 
-                        ? 
-                        <span>*{error.steps}</span> 
-                        : 
-                        undefined}
+                        {error.steps && <p>{error.steps}</p>}
 
                         <input
-                            type='text'
+                            type='url'
                             placeholder='URL Image'
                             value={input.image}
                             onChange={(e) => handleChange(e)}
                             name="image"
-                            required
-                            className={s.imgUrl}
+                            className={style.imgUrl}
                         />
-                        {error.image 
-                        ? 
-                        <span>*{error.image}</span> 
-                        : 
-                        undefined}
+                        {error.image && <p>{error.image}</p>}
                     </div>
-                    <div className={s.containerALLDiets}>
-                        <h4 className={s.title}>CHOOSE THE DIETS</h4>
-                        <div className={s.containerDiets}>
+                    <div className={style.containerALLDiets}>
+                        <h4 className={style.title}>CHOOSE THE DIETS</h4>
+                        <div className={style.containerDiets}>
                             {
                                 diets.map(diet => (
                                     <label 
-                                    key={diet.name} 
+                                    key={diet.id} 
                                     htmlFor={diet.name}>
-                                        <div className={s.byDiet}>
+                                        <div className={style.byDiet}>
                                             <input
                                                 type="checkbox"
                                                 id={diet.name}
@@ -192,7 +186,7 @@ export default function CreateRecipes() {
                                                 onChange={(e) => handleSelect(e)}
                                             />
                                             <div 
-                                            className={s.circle} 
+                                            className={style.circle} 
                                             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#2a852a7a' }}
                                             >
                                                 <img 
@@ -208,11 +202,7 @@ export default function CreateRecipes() {
                                 ))
                             }
                         </div>
-                        {error.diets 
-                        ? 
-                        <span>{error.diets}</span> 
-                        : 
-                        undefined}
+                        {error.diets && <p>{error.diets}</p>}
                     </div>
                 </form>
             </div>

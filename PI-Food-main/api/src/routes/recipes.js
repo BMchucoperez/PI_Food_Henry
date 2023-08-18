@@ -3,8 +3,6 @@ const router = express.Router()
 const { getAllInfo } = require("../controllers/recipeController");
 const { Recipe, Diet } = require('../db');
 
-require('dotenv').config();
-
 
 router.get('/', async (req, res) => {
         
@@ -47,45 +45,4 @@ router.get('/:id', async (req, res) => {
     }
 });
     
-
-router.post('/', async (req, res) => {
-    
-    try
-    {
-        let{
-            name,
-            summary,
-            healthScore,
-            image,
-            steps,
-            diets
-        } = req.body;
-
-    if (name && image && steps && healthScore && summary && diets) {
-        const createRecipe = await Recipe.create({
-            name: name,
-            image: image,
-            steps: steps,
-            healthScore: healthScore,
-            summary: summary,
-        });
-        
-        const findDiet = await Diet.findAll({
-            where: {
-                name: diets
-            }
-        });
-
-        await createRecipe.addDiet(findDiet);
-        res.status(200).json(createRecipe);
-    } else {
-        res.status(404).send("The necessary data to continue is missing");
-    }  
-    } catch (error) {
-        return res.status(400).send("Error in POST");
-    }
-   
-});
-
-
 module.exports = router;

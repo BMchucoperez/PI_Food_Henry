@@ -5,37 +5,36 @@ const { YOUR_API_KEY, spoonacularURL } = process.env;
 
 const getApiInfo = async () => {
     
-    try
-    {
-        const resAxios = await axios.get(`${spoonacularURL}/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`);
-        const { results } = resAxios.data ;
     
-        if (results.length > 0) {
-
-            let response = await results?.map((result) => {
-                return {
-
+        const resAxios = await axios.get(`${spoonacularURL}/recipes/complexSearch?apiKey=${YOUR_API_KEY}&addRecipeInformation=true&number=100`);
+        const response = await resAxios.data.results.map((result) => {
+            
+            if(result.vegetarian){
+                result.diets.push("vegetarian")
+            }
+            
+            return {
+                    id: result.id,
                     name: result.title,
-                    image: result.image, 
-                    id: result.id, 
+                    summary:result.summary,
                     healthScore: result.healthScore,
-                    diets: result.diets, 
-                    summary:result.summary, 
+                    image: result.image, 
                     steps: (
                         result.analyzedInstructions[0] && result.analyzedInstructions[0].steps
                         ?
                         result.analyzedInstructions[0].steps.map(item=>item.step)
                         :
                         ''
-                    )
+                    ),
+                    diets: result.diets, 
+                     
+                    
                 }        
             })
             return response;
-        } 
+         
 
-    }catch (error) {
-        return ([]);
-    }
+    
 };
 
 
@@ -57,9 +56,9 @@ const getDBInfo = async () => {
             name: recipe.name,
             summary: recipe.summary,
             healthScore: recipe.healthScore,
-            image: recipe.image,
             steps: recipe.steps,
-            diets: recipe.diets
+            image: recipe.image,
+            diets: recipe.diets.map(diet=>diet.name)
         }
     });
 

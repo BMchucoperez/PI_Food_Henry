@@ -79,7 +79,8 @@ export function orderByHealthScore(score) {
 
 export function postRecipe(data) {
     return async function (dispatch) {
-        let r = axios.post(`${URL_API}/recipes`, data);
+        const r = await axios.post(`${URL_API}/postRecipe`, data);
         return r;
     }
 };
+

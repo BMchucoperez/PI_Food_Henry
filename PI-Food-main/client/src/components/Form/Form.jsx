@@ -56,7 +56,7 @@ export default function RecipesForm() {
                 onlyNightAllRecipe?.map((r, i) => {
                     return (
                         <div className={styles.cards} key={i}>
-                            <Link to={`/recipe/${r.name}`} classname={styles.link}>
+                            <Link to={`/recipe/${r.name}`}>
                             <div>
                                 <Card
                                 key={r.id}

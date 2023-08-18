@@ -1,15 +1,16 @@
 import { GET_ALL_RECIPES, GET_SEARCH_RECIPES, ORDER_ALPHA, GET_ALL_DIETS, ORIGIN_FILTER, DIET_FILTER,ORDER_SCORE, GET_DETAIL_RECIPE } from './action-types';
 
 const initialState = {
-	allRecipes: [],
+	
+    allRecipes: [],
     temporal: [],
     diets: [],
     detailRecipe: undefined,
+    
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
 
-    //funcion para utilizar 'sort'
     const sort_list = (key, list, inverse) =>
         inverse
             ? [...list].sort((b, a) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0))
@@ -110,6 +111,8 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 }
             }
         
+  
+               
         default:
             return { ...state }
     }

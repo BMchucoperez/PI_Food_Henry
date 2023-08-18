@@ -5,26 +5,24 @@ const app = require('../../src/app.js');
 const { Recipe, conn } = require('../../src/db.js');
 
 const agent = session(app);
-const recipe = {
-  name: 'Milanesa a la napolitana',
-  summary: 'milanesas de carne con salsa de tomates'
-};
-
 describe('Recipe routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   }));
-  beforeEach(() => Recipe.sync({ force: true })
-    .then(() => Recipe.create(recipe)));
-  describe('GET /recipes', () => {
-    it('should get 200', () =>
-      agent.get('/recipes?name=arroz').expect(200)
-    );
-  });
-  describe('GET /recipes', () => {
-    it('should get 200', () =>
-    agent.get('/recipes/782585').expect(200))
-  })
-
 });
+describe('GET /recipes/:id', () => {
+    
+  it('should respond a recipe with the id and the correct title',()=>{
+    return agent.get("/recipes/716381")
+    .then(res => {
+      expect(res.body.name).to.equal('Nigerian Snail Stew')
+    })
+  })
+  it('should respond a recipe with the id and the correct title',()=>{
+    return agent.get("/recipes/716426")
+    .then(res => {
+      expect(res.body.name).to.equal("Cauliflower, Brown Rice, and Vegetable Fried Rice")
+    })
+  })
+  });

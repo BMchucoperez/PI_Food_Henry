@@ -28,7 +28,7 @@ const addDietsDb = async () => {
         const allDiets = await Diet.findAll();
         
         if(allDiets.length > 0) {
-            return allDiets;
+            return;
         }
         
         const resDiets = await getAllDietsApi();

@@ -7,14 +7,14 @@ export default function FilterBar() {
 
   const diets = useSelector(state => state.diets)
   const dispatch = useDispatch();
-
+  
   function handleChange(event) {
     dispatch(filterByDiet("all"))
     dispatch(filterByDiet(event.target.value));
   }
 
   function handleChangeOrgin(order) {
-    dispatch(filterByOrigin(order.target.value))
+    dispatch(filterByOrigin(order.target.value));
   }
 
   return (
