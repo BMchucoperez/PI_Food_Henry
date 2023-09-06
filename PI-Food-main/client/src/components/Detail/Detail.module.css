@@ -10,36 +10,21 @@
     
 }
 
-.containerImgSummary{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.detail_img {
+  max-width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detail_img img {
+  margin-top: 10px;
+  border-radius: 5%;
+  min-width: 400px;
+  min-height: 300px;
 }
 
-.containerSummaryHealthDiet{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border: 0.3px solid rgb(206, 93, 62);
-    background-color: azure;
-}
-
-.containerDietHealth{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-    width: 456px;
-}
-
-.containerHealtScore{
-    display: flex;
-    align-items: center;
-    margin-left: 100px;
-    justify-content: space-between;
-}
 
 .imagRecipe{
     height: 350px;
@@ -49,10 +34,49 @@
     border: 0.4px solid rgb(206, 93, 62);
 }
 
+.detail_summary{
+  color: rgb(254, 255, 252);
+  font-size: 17px;
+  list-style-type: none;
+  padding: 20px;
+  text-align: justify;
+}
+
+.detail_step {
+  color: rgb(254, 255, 252);
+  font-size: 18px;
+  list-style-type: none;
+  padding: 10px;  
+  text-align: justify;
+  margin-left: -40px;
+}
+
+.detail_description2{
+grid-template-columns: 1fr 1fr;
+}
+
+.detail_description {
+  display: grid;
+  padding: 20px;
+  margin-top: 20px;
+  
+  justify-content: center;
+  width: 85%;
+  align-items: start;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(81, 81, 81, 0.938);
+}
+
+.detail_descr_title {
+  font-size: 20px;
+  color: rgba(136, 255, 0, 0.752);
+}
+
 .steps{
     text-align:justify;
-    font-size: 14px;
-    width: 60%;
+    font-size: 10px;
+    width: 100%;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -71,14 +95,6 @@
 
 .diets li{
     margin-left: 13px;
-}
-
-.summary{
-    text-align: left;
-    font-size: 14px;
-    width: 453px;
-    height: 300px;
-    margin-bottom: 30px;
 }
 
 .icon{

@@ -35,43 +35,69 @@ export default function DetailRecipe() {
             (
                 <>
                 <h1>{recipe.name}</h1>
-                <div className={style.containerImgSummary}>
-                    <img 
-                    src={recipe.image} 
-                    alt={recipe.name} 
-                    className={style.imagRecipe} 
-                    />
-                
-                    <div className={style.containerSummaryHealthDiet}>
-                        <div className={style.summary}>
-                            <h4>Summary</h4>
-                            <p>{recipe.summary && recipe.summary.replace(/<[^>]+>/g, "")}</p>
+                <div className={style.detail_description}>
+                    <div className={style.detail_description2}>
+                        <div className={style.detail_img}>
+                        <h4 className={style.detail_descr_title}>
+                            HealthScore: {recipe.healthScore}
+                        </h4>
+                        <img 
+                        src={recipe.image} 
+                        alt={recipe.name} 
+                        />                      
+                        
                         </div>
                     
-                        <div className={style.containerDietHealth}>
-                            <div className={style.containerHealtScore}>
-                                <h4>HealthScore: </h4>
-                                <p> {recipe.healthScore}</p>
-                            </div>
-                        
-                            <ul className={style.diets}>
-                                <h4>DIETS: </h4>
-                                {recipe.diets?.map(diet => 
-                                    <li key={diet}>
-                                        {diet.toUpperCase()}
-                                    </li>
-                                )}
-                            </ul>
+                        <div>
+                        <h4 className={style.detail_descr_title}>
+                            Summary
+                        </h4>
+                        <p className={style.detail_summary}>
+                            {recipe.summary && recipe.summary.replace(/<[^>]+>/g, "")}
+                        </p>
+                        <ul className={style.detail_summary}>
+                            <h4>
+                                DIETS: 
+                            </h4>
+                            {recipe.diets?.map(diet => 
+                                <li key={diet}>
+                                    . {diet.toUpperCase()}
+                                </li>
+                            )}
+                        </ul>
                         </div>
                     </div>
-                </div>
-            
-                <hr />
                     
-                <section className={style.steps}>
-                    <h3>STEPS TO FOLLOW</h3>
-                    <p>{recipe.steps}</p>
-                </section>
+                        
+                    <div className={style.steps}>
+                        <h3 className={style.detail_descr_title}>
+                        STEPS TO FOLLOW
+                        </h3>
+                        
+                        {recipe.steps && recipe.steps.length > 0 
+                        ?
+                        (
+                        <ul>
+                        {recipe.steps.map((step, id)=>(
+                            <li 
+                            key={id}
+                            className={style.detail_step} >
+                                {id + 1}.-  {step}
+                            </li>
+                        ))}
+                        </ul>
+                        )
+                        :
+                        (
+                        <p className={style.detail_step}>
+                        There are no steps available for this recipe at the moment.
+                        </p>
+                        )}        
+                    </div>
+                                  
+                </div>          
+                             
+                
                 </>
             )}
         </div>

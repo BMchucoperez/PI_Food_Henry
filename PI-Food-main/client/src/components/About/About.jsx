@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SearchBar from '../../components/Search/Search'
 import style from './About.module.css'
 import linkedin from '../../img/linkedinIcon.png'
 import git from '../../img/githubIcon.png'
@@ -31,7 +30,7 @@ export default function Nav() {
 
                      
                 </div>
-                <li><SearchBar /></li>
+                
             </ul>
         </nav>
     )

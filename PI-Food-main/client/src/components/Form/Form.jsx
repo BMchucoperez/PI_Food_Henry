@@ -62,6 +62,7 @@ export default function RecipesForm() {
                                 key={r.id}
                                 image={r.image}
                                 name={r.name}
+                                healthScore={r.healthScore}
                                 diets={r.diets}
                                 />
                             </div>

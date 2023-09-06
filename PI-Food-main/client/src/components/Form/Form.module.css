@@ -16,6 +16,8 @@
     margin: 20px;
     text-align: center;
     transition: all 0.25s;
+    font-family: "Pacifico", cursive;
+    font-size: 13px;
   }
   
   .cards:hover {

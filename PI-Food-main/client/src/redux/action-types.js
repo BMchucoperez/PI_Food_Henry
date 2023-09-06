@@ -9,3 +9,4 @@ export const POST_RECIPE = "POST_RECIPE";
 export const GET_DETAIL_RECIPE = "GET_DETAIL_RECIPE";
 export const RESET = "RESET";
 export const DIET_TYPES='DIET_TYPES';
+export const CLEAN = "CLEAN";

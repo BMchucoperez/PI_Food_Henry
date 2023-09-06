@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_RECIPES, GET_SEARCH_RECIPES, ORDER_ALPHA, GET_ALL_DIETS, ORIGIN_FILTER, DIET_FILTER,ORDER_SCORE, GET_DETAIL_RECIPE } from './action-types';
+import { GET_ALL_RECIPES, GET_SEARCH_RECIPES, ORDER_ALPHA, GET_ALL_DIETS, ORIGIN_FILTER, DIET_FILTER,ORDER_SCORE, GET_DETAIL_RECIPE, CLEAN } from './action-types';
 
 const URL_API = "http://localhost:3001";
 
@@ -30,6 +30,7 @@ export function getSearchRecipes(name) {
         payload: name
     }
 };
+
 
 export function getDetailRecipe(name) {
     const urlDetail = `${URL_API}/recipes?name=${name}`
@@ -84,3 +85,6 @@ export function postRecipe(data) {
     }
 };
 
+export const clean = () => {
+    return { type: CLEAN };
+  };

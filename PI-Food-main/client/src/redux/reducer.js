@@ -1,4 +1,4 @@
-import { GET_ALL_RECIPES, GET_SEARCH_RECIPES, ORDER_ALPHA, GET_ALL_DIETS, ORIGIN_FILTER, DIET_FILTER,ORDER_SCORE, GET_DETAIL_RECIPE } from './action-types';
+import { GET_ALL_RECIPES, GET_SEARCH_RECIPES, ORDER_ALPHA, GET_ALL_DIETS, ORIGIN_FILTER, DIET_FILTER,ORDER_SCORE, GET_DETAIL_RECIPE, CLEAN } from './action-types';
 
 const initialState = {
 	
@@ -11,10 +11,14 @@ const initialState = {
 
 const rootReducer = (state = initialState, { type, payload }) => {
 
-    const sort_list = (key, list, inverse) =>
+    const sort_list = (key, list, inverse) => 
         inverse
-            ? [...list].sort((b, a) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0))
-            : [...list].sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0))
+        ? 
+        [...list].sort((b, a) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0))
+        : 
+        [...list].sort((a, b) => (a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0))
+    
+        
 
     switch (type) {
         case GET_ALL_RECIPES:
@@ -41,6 +45,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 temporal: filterTile.length === 0 ? ["not found"] : filterTile
 
+            }
+
+        case CLEAN:
+            return{
+                ...state,
+                SearchBar: []
             }
 
         case ORDER_ALPHA:
@@ -88,6 +98,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
                     recipe.diets.includes(payload)
                 )
             }
+            
 
         case ORIGIN_FILTER:
             if (payload === "all") {
